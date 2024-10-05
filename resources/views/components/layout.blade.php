@@ -23,9 +23,10 @@
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
                                 <!-- Using TailwindCss' logic we personalize the buttons-->
-                                <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-                                <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
-                                <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                                <!-- the colon : in the word active represente the value you provide there should be treated as an expression rather than a string -->
+                                <x-nav-link href="/" :active="request()->is('/')" type="a">Home</x-nav-link>
+                                <x-nav-link href="/about" :active="request()->is('about')" type="a">About</x-nav-link>
+                                <x-nav-link href="/contact" :active="request()->is('contact')" type="button">Contact</x-nav-link>
                             </div>
                         </div>
                     </div>
