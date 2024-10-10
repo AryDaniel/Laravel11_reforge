@@ -7,8 +7,18 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * We use the Database Management TablePlus 
+     * 
+     * php artisan - show all the commants
+     *      db:show - Display information about the given database
+     *      
+     *      migrate - this is plain just to apply that newest
+     *      migrate:fresh             Drop all tables and re-run all migrations
+     *      migrate:refresh           Reset and re-run all migrations
+     *      
+     *      make:migration            Create a new migration file
      */
+
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
