@@ -6,6 +6,10 @@ use App\Models\Job;
 
 
 Route::get('/', function () {
+    $jobs = Job::all();
+    //dd($jobs);//Here is the entire collection
+    //dd($jobs[0]->title);//Here is just a instanse
+
     return view('welcome');
 });
 
