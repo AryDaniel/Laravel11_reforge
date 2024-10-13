@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('job_listing', function (Blueprint $table) {
             $table->id();
+            
+            //this is the equivalent code without foreignIdFor
+            //$table->unsignedBigInteger('employer_id');  // Creates the foreign key column
+            //$table->foreign('employer_id')->references('id')->on('employers');  // Sets up the foreign key constraint
+
+            $table->foreignIdFor(\App\Models\Employer::class);
             $table->string('title');
             $table->string('salary');
             $table->timestamps();
