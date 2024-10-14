@@ -16,4 +16,12 @@ class Job extends Model{
         'title',
         'salary'
     ];
+
+    //To access this method, we are going to call it as a property
+    public function employer(){
+        //One to Many (Inverse) / Belongs To
+        return $this->belongsTo(employer::class);
+        // $job = Job::first();
+        // $job->employer;
+    }
 }
