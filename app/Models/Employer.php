@@ -12,6 +12,7 @@ class Employer extends Model
 
     public function jobs(){
         //One to Many / hasMany
+        // One Employer can have multiple Job records associated with it.
         return $this->hasMany(Job::class);
         //$employer = Employer::first();
         //$employer->jobs; //here we are get all the jobs associaded with a specific employer

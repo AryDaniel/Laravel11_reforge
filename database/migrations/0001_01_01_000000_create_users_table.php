@@ -11,10 +11,12 @@ return new class extends Migration
      * 
      * php artisan - show all the commants
      *      db:show - Display information about the given database
+     *      db:wipe - Drop all tables, views, and types
      *      
      *      migrate - this is plain just to apply that newest
      *      migrate:fresh             Drop all tables and re-run all migrations
      *      migrate:refresh           Reset and re-run all migrations
+     *      migrate:rollback          Rollback the last database migration
      *      
      *      make:migration            Create a new migration file
      */

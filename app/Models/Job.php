@@ -20,8 +20,15 @@ class Job extends Model{
     //To access this method, we are going to call it as a property
     public function employer(){
         //One to Many (Inverse) / Belongs To
+        // Each Job is associated with one Employer.
         return $this->belongsTo(employer::class);
         // $job = Job::first();
         // $job->employer;
     }
+
+    public function tags(){
+        //Laravel expect a column named "job_id", so we overwrite for job_listing_id
+        return $this->belongsToMany(Tag::class, foreignPivotKey: "job_listing_id");//
+            return $this->belongsToMany(Tag::class, foreignPivotKey: "job_listing_id");
+}
 }
