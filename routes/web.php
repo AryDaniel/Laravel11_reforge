@@ -22,7 +22,13 @@ Route::get('/contact', function() {
 });
 
 Route::get('/jobs', function() {
-    return view('jobs',['jobs' => Job::all()]);
+    // We are eager loading the 'employer' relationship 
+    // to minimize the number of SQL queries and improve performance.
+    $jobs = Job::with('employer')->get();
+
+    return view('jobs',[
+        'jobs' => $jobs
+    ]);
 });
 
 Route::get('/job/{id}', function($id) {
