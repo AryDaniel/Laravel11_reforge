@@ -14,6 +14,23 @@
                 </div>
             </a>
         @endforeach
+        <!-- That's what you can do if you're using tailwind-->
+        <div> 
+            {{ $jobs->links() }} 
+        </div>
+
+        <!-- 
+        `php artisan vendor:publish`
+            - `vendor` refers to any package that has been installed via Composer.
+            - `publish` allows you to publish package assets, routes, config files, or views to your application's directory, 
+            enabling manual control and customization.
+
+            Laravel Pagination
+                - Copies pagination view files from the `vendor` folder (where all Composer packages are installed).
+                - Publishes these pagination views to `resources/views/vendor/pagination`, 
+                allowing you to customize them as needed.
+            -->
+
     </div>
 
 </x-layout> 

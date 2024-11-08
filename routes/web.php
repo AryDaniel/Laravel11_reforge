@@ -24,7 +24,9 @@ Route::get('/contact', function() {
 Route::get('/jobs', function() {
     // We are eager loading the 'employer' relationship 
     // to minimize the number of SQL queries and improve performance.
-    $jobs = Job::with('employer')->get();
+    $jobs = Job::with('employer')->cursorPaginate(3);
+    //->simplePaginate(#);
+    //->cursorPaginate(#);
 
     return view('jobs',[
         'jobs' => $jobs
