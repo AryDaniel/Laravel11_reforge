@@ -7,13 +7,26 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * We use the Database Management TablePlus 
+     * 
+     * php artisan - show all the commants
+     *      db:show - Display information about the given database
+     *      db:wipe - Drop all tables, views, and types
+     *      
+     *      migrate - this is plain just to apply that newest
+     *      migrate:fresh             Drop all tables and re-run all migrations
+     *      migrate:refresh           Reset and re-run all migrations
+     *      migrate:rollback          Rollback the last database migration
+     *      
+     *      make:migration            Create a new migration file
      */
+
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

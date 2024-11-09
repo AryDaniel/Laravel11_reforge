@@ -23,8 +23,14 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        /*To create fake users, we use the following commands in PHP Artisan Tinker: 
+            User::factory()->create()
+             
+            User::factory(100)->create() // This creates one hundred fake users.
+        */
         return [
-            'name' => fake()->name(),
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
@@ -34,6 +40,9 @@ class UserFactory extends Factory
 
     /**
      * Indicate that the model's email address should be unverified.
+     * 
+     * To utilize this function, add the ->unverified() method in our commands.
+     * Example: User::factory()->unverified()->create() 
      */
     public function unverified(): static
     {
