@@ -24,17 +24,33 @@ Route::get('/contact', function() {
 Route::get('/jobs', function() {
     // We are eager loading the 'employer' relationship 
     // to minimize the number of SQL queries and improve performance.
-    $jobs = Job::with('employer')->paginate(3);
+
+    //->latest() means orderBy the created at timestamp in descending order
+    $jobs = Job::with('employer')->latest()->paginate(3);
     //->simplePaginate(#);
     //->cursorPaginate(#);
 
-    return view('jobs',[
+    return view('jobs.index',[
         'jobs' => $jobs
     ]);
+});
+
+Route::get('/job/create', function() {
+    return view('jobs.create');
 });
 
 Route::get('/job/{id}', function($id) {
     $job = Job::find($id);
 
-    return view('job', ['job' => $job]);
+    return view('jobs.show', ['job' => $job]);
+});
+
+Route::post('/jobs', function(){
+    Job::create([
+        'title' => request('title'),
+        'salary' => request('salary'),
+        'employer_id' => 1 // Authentication is not yet covered, so we'll hardcode an employer for now.
+    ]);
+
+    return redirect('/jobs'); 
 });

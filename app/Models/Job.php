@@ -12,10 +12,8 @@ class Job extends Model{
     // _create_job_listing_table and not _create_jobs_table
     protected $table = 'job_listing';
 
-    protected $fillable = [
-        'title',
-        'salary'
-    ];
+    // the oposite of $fillable field is $guarded
+    protected $guarded = [];
 
     //To access this method, we are going to call it as a property
     public function employer(){

@@ -1,4 +1,5 @@
-<x-layout>
+<!-- the view for displaying or showing a single resource or record is call show-->
+ <x-layout>
     <x-slot:heading>
         Job Page!
     </x-slot:heading>

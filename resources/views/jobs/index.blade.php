@@ -1,3 +1,6 @@
+<!-- Why we rename this file to index.blade.php? it's a convention 
+    because now are in the fordel jobs and don't make sense the file be in jobs/jobs
+-->
 <x-layout>
     <x-slot:heading>
         Jobs Page!
