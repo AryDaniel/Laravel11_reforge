@@ -59,6 +59,9 @@
         </div>
         
         <div class="mt-6 flex items-center justify-between gap-x-6">
+            <div class="flex items-center">
+                <button form="delete-form" class="text-red-500 text-sm font-bold">Delete</button>
+            </div>
             <div class="flex items-center gap-x-6">
                 <a href="/jobs/{{ $job->id }}"class="text-sm/6 font-semibold text-gray-900">Cancel</a>
                 <button type="submit" 
@@ -69,5 +72,9 @@
         </div>
     </form>
 
+    <form method="POST" action="/jobs/{{ $job->id }}" class="hidden" id="delete-form">
+        @csrf
+        @method('DELETE')
+    </form>
 
 </x-layout> 

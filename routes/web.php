@@ -90,3 +90,13 @@ Route::patch('/jobs/{id}', function($id) {
 
     return redirect('/jobs/'. $job->id);
 });
+
+// Destroy 
+Route::delete('/jobs/{id}', function($id) {
+    // $job = Job::findOrFail($id);
+    // $job->delete();
+
+    Job::findOrFail($id)->delete();
+
+    return redirect('jobs');
+});
